@@ -1,29 +1,27 @@
 # Capstone-Project-Courier-Optimization-System-DAA
 
+
 # 🚚 Smart Courier Optimization System
 
-A Python-based courier planning system that helps select parcels, pack them within vehicle capacity, and find an efficient delivery route.
+A Python-based project that helps plan parcel packing and delivery routes using different algorithms.
 
-This project uses different algorithms from **Design and Analysis of Algorithms (DAA)** to solve real-world delivery problems.
+The user can choose predefined sample data or enter their own parcel and location details.
 
 ## 📌 Project Overview
 
 The system performs two main tasks:
 
-1. **Parcel Packing:** Selects the best combination of parcels without exceeding the vehicle's weight and volume limits.
-2. **Route Optimization:** Finds an efficient order for delivering parcels to different locations while minimizing travel distance.
-
-It combines sorting, Dynamic Programming, Graph Algorithms, and Approximation Algorithms.
+1. **Parcel Packing:** Selects the best combination of parcels within the vehicle's weight and volume limits.
+2. **Route Optimization:** Finds an efficient order for delivering parcels while reducing travel distance.
 
 ## 🎯 Objectives
 
-- Sort parcels according to their delivery priority.
-- Select parcels based on vehicle capacity.
-- Maximize the total value of selected parcels.
-- Find shortest distances between delivery locations.
-- Generate an efficient delivery route.
-- Reduce unnecessary travel distance.
-- Generate a final delivery report.
+- Sort parcels based on priority.
+- Select parcels using Dynamic Programming.
+- Generate a delivery graph automatically.
+- Find shortest distances between locations.
+- Generate and optimize delivery routes.
+- Display a final delivery report.
 
 ## 📂 Project Structure
 
@@ -50,147 +48,92 @@ smart_courier/
 └── README.md
 ```
 
-### File Description
-
-| File | Purpose |
-|---|---|
-| `main.py` | Starts the application |
-| `sample_data.py` | Contains parcel and location details |
-| `sorting.py` | Sorts parcels by priority |
-| `packing.py` | Selects parcels using Dynamic Programming |
-| `graph.py` | Creates the delivery graph and finds shortest paths |
-| `routing.py` | Generates and improves delivery routes |
-| `courier_service.py` | Connects all the algorithms |
-
 ## ⚙️ Algorithms Used
 
-### 1. Sorting Algorithm
-
-Sorts parcels based on:
-- Highest delivery priority.
-- Highest parcel value.
-- Lowest parcel weight.
-
-### 2. Dynamic Programming (0/1 Knapsack)
-
-Selects parcels that provide the maximum total value while staying within the vehicle's weight and volume limits.
-
-Each parcel is either selected completely or not selected.
-
-### 3. Graph Construction
-
-Represents delivery locations as points (vertices) and the distances between them as edges.
-
-### 4. Dijkstra's Algorithm
-
-Finds the shortest distance from one delivery location to other locations.
-
-### 5. Nearest Neighbor Algorithm
-
-Starts from the depot and repeatedly visits the nearest unvisited delivery location.
-
-### 6. 2-opt Algorithm
-
-Improves the delivery route by changing the order of locations whenever a shorter route is found.
+1. **Sorting:** Arranges parcels according to priority, value, and weight.
+2. **Dynamic Programming (0/1 Knapsack):** Selects parcels within vehicle capacity.
+3. **Graph Algorithms:** Represents delivery locations and distances.
+4. **Dijkstra's Algorithm:** Finds shortest distances between locations.
+5. **Nearest Neighbor:** Generates an initial delivery route.
+6. **2-opt:** Improves the delivery route by reducing unnecessary travel.
 
 ## 🔄 Working of the Project
 
-```text
-          START
-            |
-            v
-      Enter Parcel Data
-            |
-            v
-       Sort Parcels
-            |
-            v
-     Optimize Parcel
-         Packing
-            |
-            v
-      Select Parcels
-            |
-            v
-     Create Delivery
-          Graph
-            |
-            v
-    Apply Dijkstra's
-        Algorithm
-            |
-            v
-     Generate Initial
-       Delivery Route
-            |
-            v
-       Apply 2-opt
-            |
-            v
-      Final Optimized
-       Delivery Route
-            |
-            v
-      Generate Delivery
-          Report
-            |
-            v
-           END
-```
+1. Choose sample data or enter custom data.
+2. Enter vehicle capacity, if using custom data.
+3. Sort the parcels.
+4. Select parcels using Dynamic Programming.
+5. Generate the weighted delivery graph automatically.
+6. Calculate shortest distances using Dijkstra.
+7. Generate a delivery route using Nearest Neighbor.
+8. Improve the route using 2-opt.
+9. Display the final delivery report.
 
-## 🚀 How to Run the Project
+## 🚀 How to Run
 
 ### Requirements
 
 - Python 3.8 or above.
 - VS Code, PyCharm, or any Python IDE.
 
-### Step 1: Open the Project Folder
+No external libraries are required for the built-in Python version.
+
+### Step 1: Open the project folder
 
 ```bash
 cd smart_courier
 ```
 
-### Step 2: Run the Main File
+### Step 2: Run the program
 
 ```bash
 python main.py
 ```
 
-No additional libraries need to be installed.
+## 📊 Input Options
 
-## 📊 Sample Input
+When the program starts, it provides two options:
 
-The project uses sample parcel data.
+```text
+SMART COURIER OPTIMIZATION
 
-| Parcel ID | Destination | Weight | Volume | Priority | Value |
-|---|---|---:|---:|---:|---:|
-| P1 | A | 4 | 3 | 5 | 100 |
-| P2 | B | 3 | 2 | 4 | 80 |
-| P3 | C | 5 | 4 | 3 | 90 |
-| P4 | D | 2 | 2 | 5 | 120 |
-| P5 | A | 3 | 3 | 2 | 60 |
-| P6 | E | 4 | 2 | 4 | 110 |
-| P7 | C | 2 | 1 | 5 | 70 |
+1. Use Sample Data
+2. Enter Custom Data
 
-### Vehicle Capacity
+Select an option:
+```
 
-- Maximum Weight: 15 units
-- Maximum Volume: 12 units
+**Option 1 – Sample Data**
+
+- Loads predefined parcels and delivery locations.
+- Uses predefined vehicle weight and volume limits.
+- Runs the complete optimization process.
+
+**Option 2 – Custom Data**
+
+Allows users to enter:
+- Vehicle maximum weight and volume.
+- Delivery location names.
+- X and Y coordinates.
+- Parcel IDs and destinations.
+- Parcel weight and volume.
+- Delivery priority.
+- Parcel value.
 
 ## 📈 Expected Output
 
-When the program runs, it displays:
+The program displays:
 
-1. Sorted parcels.
-2. Selected parcels for delivery.
-3. Total parcel value.
-4. Total weight and volume.
-5. Shortest distance matrix.
-6. Initial delivery route.
-7. Optimized delivery route.
-8. Total delivery distance.
-9. Delivery manifest showing parcels for each destination.
+- Sorted parcels.
+- Selected parcels for delivery.
+- Total parcel value.
+- Total weight and volume.
+- Automatically generated graph connections.
+- Shortest distance matrix.
+- Initial delivery route.
+- Optimized delivery route.
+- Total delivery distance.
+- Final delivery manifest.
 
 ## ⏱️ Time Complexity
 
@@ -199,14 +142,14 @@ When the program runs, it displays:
 | Sorting | O(n log n) |
 | Knapsack DP | O(n × W × C) |
 | Graph Construction | O(V²) |
-| Dijkstra | O((V + E) log V) |
+| Dijkstra (using heap) | O((V + E) log V) |
 | Nearest Neighbor | O(V²) |
 | 2-opt | O(V³) per iteration |
 
-Where:
+### Variables
 
 - n = Number of parcels.
 - W = Maximum vehicle weight.
 - C = Maximum vehicle volume.
-- V = Number of locations.
+- V = Number of delivery locations.
 - E = Number of graph edges.
